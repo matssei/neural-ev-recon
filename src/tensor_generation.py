@@ -51,6 +51,8 @@ def mp4_to_tensor(vid, max_len=None):
         frame_count += 1
         print(frame_count, end=" ", flush=True)
 
+    print()
+
     capture.release()
 
     return torch.from_numpy(tens)
@@ -107,15 +109,9 @@ def main():
     vid = 'datasets/back6.mp4'
     width = 640
     height = 480
-    length = 105
+    length = 28
 
-    # save_event_tensor(bagfile, (width, height, length), 'short')
-
-    save_mp4_tensor(vid, 3, 'short')
-    vt = load_tensor('short.vdt')
-
-    plt.imshow(vt[0])
-    plt.show()
+    save_mp4_tensor(vid, 28, '28frames')
 
 
 if __name__ == '__main__':
